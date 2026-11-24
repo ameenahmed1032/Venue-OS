@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --page: #f6f4ef; --surface: #ffffff; --ink: #141a29; --mute: #6b7384; --line: #e4e0d6; }
+[data-theme="dark"] { --page: #0d121d; --surface: #151c2c; --ink: #eceef4; --mute: #9aa3b8; --line: #263049; }
+body { background: var(--page); color: var(--ink); line-height: 1.6; font-family: 'Noto Sans', 'Noto Sans Devanagari', 'Noto Sans Kannada', system-ui, sans-serif; }
+
+@layer components {
+  .card { @apply rounded-xl border border-line bg-surface p-4 shadow-sm; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply btn bg-navy-800 text-white hover:bg-navy-700; }
+  [data-theme="dark"] .btn-primary { @apply bg-gold text-navy-900 hover:bg-gold-soft; }
+  .btn-gold { @apply btn bg-gold text-white hover:opacity-90; }
+  .btn-ghost { @apply btn border border-line bg-surface hover:bg-black/5; }
+  .btn-danger { @apply btn bg-red-600 text-white hover:bg-red-700; }
+  .input { @apply w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm outline-none focus:border-gold; }
+  .label { @apply mb-1 block text-xs font-medium text-mute; }
+  .th { @apply px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-mute; }
+  .td { @apply border-t border-line px-3 py-2 text-sm; }
+}
+@media print { aside, header, .no-print { display: none !important; } main { padding: 0 !important; } }
